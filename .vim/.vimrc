@@ -1,3 +1,4 @@
+" ================ STANDARD VIMRC CONFIG ================ 
 " Load plugins
 execute pathogen#infect()
 
@@ -11,6 +12,9 @@ set guifont=Menlo\ Regular:h18  " set font for the gui version of Vim
 
 " Fixes
 set backspace=indent,eol,start  " fix backspace in Windows to work as expected
+
+" Useful remaps
+
 
 " Various settings
 set number                  " line numbering
@@ -26,7 +30,7 @@ set hlsearch        " highlight found words in word search
 let mapleader=","   " set leaderkey
 " sourcing vimrc
 if has("win32")
-    map <leader>s :source $HOME\.vim\.vimrc<CR>
+    map <leader>s :source $HOME\vimfiles\.vimrc<CR>
 else
     map <leader>s :source ~/.vimrc<CR>
 endif
@@ -35,5 +39,34 @@ nmap <leader>p "+p
 " cancel word highlighting with Esc
 nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 
-" Plugins
+" ================ PLUGINS CONFIG ================ 
 filetype plugin on  " turn on filetype deduction for plugins
+
+
+" ========= LIGHTLINE STATUS BAR CONFIG =========
+set laststatus=2    " fix lighline status bar
+set noshowmode      " turn off default mode bar
+
+" Replace default filename in the lightline status bar
+let g:lightline = {
+      \ 'component_function': {
+      \   'filename': 'RelativePathLightLine'
+      \ }
+      \ }
+ 
+" Show full path of filename
+function! RelativePathLightLine()
+    return expand('%')
+endfunction
+
+" Add the the current git path to status bar
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
