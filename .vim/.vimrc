@@ -14,7 +14,7 @@ set guifont=Menlo\ Regular:h18  " set font for the gui version of Vim
 set backspace=indent,eol,start  " fix backspace in Windows to work as expected
 
 " Useful remaps
-
+nnoremap ; :
 
 " Various settings
 set number                  " line numbering
@@ -28,14 +28,16 @@ set hlsearch        " highlight found words in word search
 
 " Leader key bindings
 let mapleader=","   " set leaderkey
+
 " sourcing vimrc
-if has("win32")
-    map <leader>s :source $HOME\vimfiles\.vimrc<CR>
-else
-    map <leader>s :source ~/.vimrc<CR>
-endif
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" opening vimrc in split
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
 " pasting from clipboard
-nmap <leader>p "+p
+nnoremap <leader>p "+p
+
 " cancel word highlighting with Esc
 nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 
@@ -43,7 +45,7 @@ nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 filetype plugin on  " turn on filetype deduction for plugins
 
 
-" ========= LIGHTLINE STATUS BAR CONFIG =========
+" --------- LIGHTLINE STATUS BAR CONFIG ---------
 set laststatus=2    " fix lighline status bar
 set noshowmode      " turn off default mode bar
 
@@ -60,13 +62,17 @@ function! RelativePathLightLine()
 endfunction
 
 " Add the the current git path to status bar
+" Also add the hex code for current character to status bar
 let g:lightline = {
       \ 'colorscheme': 'powerline',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'charvaluehex' ] ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head'
+      \ },
+      \ 'component': {
+      \   'charvaluehex': '0x%B'
       \ },
       \ }
