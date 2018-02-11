@@ -15,6 +15,7 @@ set backspace=indent,eol,start  " fix backspace in Windows to work as expected
 
 " Useful remaps
 nnoremap ; :
+nnoremap <f3> mzggVGg?`z
 
 " Various settings
 set number                  " line numbering
