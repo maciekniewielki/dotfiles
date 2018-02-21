@@ -8,7 +8,7 @@ set enc=utf-8   " set displayed encoding
 filetype on     " identify file based on extension/content
 syntax on       " turn on syntax highlighting 
 colorscheme Tomorrow-Night      " select scheme
-set guifont=Menlo\ Regular:h18  " set font for the gui version of Vim
+set guifont=Menlo\ Regular:h12  " set font for the gui version of Vim
 
 " Fixes
 set backspace=indent,eol,start  " fix backspace in Windows to work as expected
@@ -16,6 +16,12 @@ set backspace=indent,eol,start  " fix backspace in Windows to work as expected
 " Useful remaps
 nnoremap ; :
 nnoremap <f3> mzggVGg?`z
+
+" For window switching
+map <c-h> <c-w>h
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
 
 " Various settings
 set number                  " line numbering
