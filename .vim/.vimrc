@@ -41,6 +41,7 @@ set softtabstop=4   " sets the number of columns for a TAB.
 set expandtab       " expand TABs to spaces.
 set history=200     " command history length
 set hlsearch        " highlight found words in word search
+set smartindent     " automatic tab spacing after newline
 
 " Leader key bindings
 let mapleader=","   " set leaderkey
