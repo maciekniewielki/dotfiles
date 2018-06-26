@@ -10,9 +10,9 @@ filetype on     " identify file based on extension/content
 syntax on       " turn on syntax highlighting 
 colorscheme Tomorrow-Night      " select scheme
 if has("win32") " set font for the gui version of Vim
-    set guifont=Menlo\ Regular:h18
+    set guifont=Menlo\ Regular:h14
 else
-    set guifont=Menlo\ 18  
+    set guifont=Menlo\ 14  
 endif
 " Fixes
 set backspace=indent,eol,start  " fix backspace in Windows to work as expected
@@ -25,6 +25,12 @@ nnoremap <Down> j
 nnoremap <Left> h
 nnoremap <Right> l
 nnoremap <f2> :nohlsearch<cr>
+
+" For window switching
+map <c-h> <c-w>h
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
 
 " Various settings
 set number                  " line numbering
