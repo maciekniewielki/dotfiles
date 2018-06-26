@@ -1,4 +1,5 @@
 " ================ STANDARD VIMRC CONFIG ================ 
+set nocompatible
 " Load plugins
 execute pathogen#infect()
 
@@ -8,14 +9,22 @@ set enc=utf-8   " set displayed encoding
 filetype on     " identify file based on extension/content
 syntax on       " turn on syntax highlighting 
 colorscheme Tomorrow-Night      " select scheme
-set guifont=Menlo\ Regular:h18  " set font for the gui version of Vim
-
+if has("win32") " set font for the gui version of Vim
+    set guifont=Menlo\ Regular:h18
+else
+    set guifont=Menlo\ 18  
+endif
 " Fixes
 set backspace=indent,eol,start  " fix backspace in Windows to work as expected
 
 " Useful remaps
 nnoremap ; :
 nnoremap <f3> mzggVGg?`z
+nnoremap <Up> k
+nnoremap <Down> j
+nnoremap <Left> h
+nnoremap <Right> l
+nnoremap <f2> :nohlsearch<cr>
 
 " Various settings
 set number                  " line numbering
@@ -40,7 +49,7 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>p "+p
 
 " cancel word highlighting with Esc
-nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
+" nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 
 " ================ PLUGINS CONFIG ================ 
 filetype plugin on  " turn on filetype deduction for plugins
