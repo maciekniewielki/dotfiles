@@ -52,8 +52,11 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " opening vimrc in split
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
+" copying to clipboard
+noremap <leader>y "+y
+
 " pasting from clipboard
-nnoremap <leader>p "+p
+noremap <leader>p "+p
 
 " cancel word highlighting with Esc
 " nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
