@@ -32,6 +32,10 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 
+" Switching buffers with <Tab>
+nnoremap <silent><TAB> :bp<CR>
+nnoremap <silent><S-TAB> :bn<CR>
+
 " Various settings
 set number                  " line numbering
 set lines=35 columns=150    " terminal size
