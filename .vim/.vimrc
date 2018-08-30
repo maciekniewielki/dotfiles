@@ -17,6 +17,9 @@ endif
 " Fixes
 set backspace=indent,eol,start  " fix backspace in Windows to work as expected
 
+" Macros
+let @c = ':s/;$/\=printf(";cout<<%-4d<<endl;", line("."))'     " Adds a cout<< [current line] at the end of line
+
 " Useful remaps
 nnoremap ; :
 nnoremap <f3> mzggVGg?`z
